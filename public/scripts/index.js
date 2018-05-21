@@ -10,8 +10,7 @@ const deletePhoto = id => {
   deletePhotoDisplay(id);
 };
 
-const createPhotoDisplay = photoObj => {
-  return `
+const createPhotoDisplay = photoObj => (`
     <article class="photo-display" id="${photoObj.id}">
       <a href="${photoObj.url}"><img class="photo" src=${photoObj.url}></a>
       <h6 class="photo-title">${photoObj.title}</h6>
@@ -21,8 +20,8 @@ const createPhotoDisplay = photoObj => {
         X
       </button>
     </article>
-  `;
-};
+  `);
+
 
 const displaySavedPhotos = photosArr => {
   const photosHTML = photosArr.map(photo => createPhotoDisplay(photo));
