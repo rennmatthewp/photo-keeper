@@ -10,18 +10,22 @@ const deletePhoto = id => {
   deletePhotoDisplay(id);
 };
 
-const displaySavedPhotos = photosArr => {
-  const photosHTML = photosArr.map(photo => {
-    const photoDisplay = `
-      <article class="photo-display" id="${photo.id}">
-        <a href="${photo.url}"><img class="photo" src=${photo.url}></a>
-        <h6 class="photo-title">${photo.title}</h6>
-        <button class="delete-photo-button" onclick="deletePhoto(${photo.id})">X</button>
-      </article>
-    `;
-    return photoDisplay;
-  });
+const createPhotoDisplay = photoObj => {
+  return `
+    <article class="photo-display" id="${photoObj.id}">
+      <a href="${photoObj.url}"><img class="photo" src=${photoObj.url}></a>
+      <h6 class="photo-title">${photoObj.title}</h6>
+      <button 
+        class="delete-photo-button" 
+        onclick="deletePhoto(${photoObj.id})">
+        X
+      </button>
+    </article>
+  `;
+};
 
+const displaySavedPhotos = photosArr => {
+  const photosHTML = photosArr.map(photo => createPhotoDisplay(photo));
   document.querySelector('#photos-display').innerHTML = photosHTML.join('');
 };
 
@@ -53,9 +57,9 @@ const savePhoto = event => {
   postPhoto(title.value, url.value);
   title.value = '';
   url.value = '';
+  getSavedPhotos();
 };
 
 document
   .querySelector('#add-photos-form')
   .addEventListener('submit', savePhoto);
-
