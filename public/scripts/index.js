@@ -1,10 +1,22 @@
+const deletePhotoDisplay = id => {
+  document.getElementById(id).remove();
+};
+
+// eslint-disable-next-line
+const deletePhoto = id => {
+  fetch(`/api/v1/photos/${id}`, {
+    method: 'DELETE',
+  });
+  deletePhotoDisplay(id);
+};
+
 const displaySavedPhotos = photosArr => {
   const photosHTML = photosArr.map(photo => {
     const photoDisplay = `
       <article class="photo-display" id="${photo.id}">
-        <img class="photo" src=${photo.url}>
+        <a href="${photo.url}"><img class="photo" src=${photo.url}></a>
         <h6 class="photo-title">${photo.title}</h6>
-        <button id="delete-photo-button" class="delete-photo-button" onclick="deletePhoto">X</button>
+        <button class="delete-photo-button" onclick="deletePhoto(${photo.id})">X</button>
       </article>
     `;
     return photoDisplay;
@@ -46,3 +58,4 @@ const savePhoto = event => {
 document
   .querySelector('#add-photos-form')
   .addEventListener('submit', savePhoto);
+
