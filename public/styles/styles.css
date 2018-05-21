@@ -12,8 +12,53 @@ form {
 
 input {
   margin: .8em 0;
+  font-size: 1.5em;
+  padding: .2em;
 }
 
-button {
+button.submit-button {
   margin: 1.2em 0;
+  font-size: 1.5em;
+  background-color: #D9E9FF;
+  padding: .2em;
+  border: 1px solid #D9E9FF;
+}
+
+button.submit-button:hover {
+  border: 1px solid #0c0c7a;
+}
+
+section {
+  width: 100vw;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+h1 {
+  font-size: 5em;
+  margin: .2em;
+}
+
+.photo-display {
+  border: 1px solid #000;
+  padding: 1em;
+  margin: 1em;
+}
+
+.photo {
+  width: 20em;
+}
+
+.photo-title {
+  margin: .2em;
+}
+
+.delete-photo-button {
+  background-color: #d3d3d3;
+  border: 1px solid #000;
+  margin: .1em;
+  float: right;
 }
