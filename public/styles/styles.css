@@ -1,0 +1,19 @@
+header {
+  width: fit-content;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+input {
+  margin: .8em 0;
+}
+
+button {
+  margin: 1.2em 0;
+}
